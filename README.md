@@ -10,10 +10,6 @@ Search for National Parks by state using the National Park Service API (https://
 
 Clone project onto your local machine
 
-### Install dependencies
-
-Run `npm install` on project folder
-
 ### Get an API key
 
 Go to the [National Park Service and sign up for an API key](https://www.nps.gov/subjects/developer/get-started.htm).
@@ -22,7 +18,11 @@ Go to the [National Park Service and sign up for an API key](https://www.nps.gov
 
 In `src/NationalParks/constants/constants.js` replace value assigned to `myApiKey` with your API key.
 
-It should look like this `const myApiKey = YOUR-API-KEY;`
+It should look like this `const myApiKey = YOURAPIKEY;`
+
+### Install dependencies
+
+Run `npm install` on project folder
 
 ### Run project in development mode
 
