@@ -1,10 +1,10 @@
 import React from 'react';
-import NationalPark from './NationalParks/nationalParks';
+import NationalParks from './NationalParks/nationalParks';
 
 function App() {
   return (
     <div id="App">
-      <NationalPark />
+      <NationalParks />
     </div>
   );
 }

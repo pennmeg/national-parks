@@ -11,7 +11,7 @@ import parkSVG from '../assets/example-26.svg';
 import './styles/nationalParks.scss';
 import './styles/global.scss';
 
-function NationalPark() {
+function NationalParks() {
   const [state, setState] = useState('AL');
   const [isLoading, setIsLoading] = useState(false);
   const [stateParks, setStateParks] = useState([]);
@@ -86,4 +86,4 @@ function NationalPark() {
   );
 }
 
-export default NationalPark;
+export default NationalParks;
