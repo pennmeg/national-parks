@@ -16,6 +16,7 @@ function NationalPark() {
   const [state, setState] = useState('AL');
   const [isLoading, setIsLoading] = useState(false);
   const [stateParks, setStateParks] = useState([]);
+  const [selectedState, setSelectedState] = useState('');
   const [selectedPark, setSelectedPark] = useState([]);
   const [stateError, setStateError] = useState(false);
   const [parkError, setParkError] = useState(false);
@@ -32,6 +33,8 @@ function NationalPark() {
     const stateCode = `stateCode=${state}`;
     const url = npsUrl + parkApi + stateCode + apiKey;
     stateError && setStateError(false);
+    setSelectedPark([]);
+    setSelectedState(state);
     setIsLoading(true);
     fetch(url)
       .then(response => response.json())
@@ -69,7 +72,7 @@ function NationalPark() {
       </header>
       <div>
         <div style={{ textAlign: 'center', minHeight: '100px' }}>
-          <h2 id="stateParks">National Parks {stateParks && stateParks.length ? `in ${state}` : ''}</h2>
+          <h2 id="stateParks">National Parks {stateParks && stateParks.length ? `in ${selectedState}` : ''}</h2>
           {isLoading ?
             <LoadingSpinner /> :
             ( stateError ?
