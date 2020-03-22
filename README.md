@@ -12,6 +12,16 @@ Clone project onto your local machine
 
 Run `npm install` on project folder
 
+### Get an API key
+
+Go to the [National Park Service and sign up for an API key](https://www.nps.gov/subjects/developer/get-started.htm).
+
+### Open the code editor
+
+In `src/NationalParks/constants/constants.js` replace value assigned to `myApiKey` with your API key.
+
+It should look like this `const myApiKey = YOUR-API-KEY;`
+
 ### Run project in development mode
 
 `npm start` and open [http://localhost:3000](http://localhost:3000) to view it in the browser.
