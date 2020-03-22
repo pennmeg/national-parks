@@ -1,0 +1,16 @@
+@import './colors.scss';
+
+.srOnly {
+  font-size: 1px;
+  color: $white;
+  color: transparent;
+}
+
+.flexBox {
+  display: flex;
+}
+
+.flexBox--justifyCenter {
+  display: flex;
+  justify-content: center;
+}
