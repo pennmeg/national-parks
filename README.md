@@ -2,7 +2,7 @@
 
 Search for National Parks by state using the National Park Service API (https://www.nps.gov/subjects/developer/get-started.htm)
 
-![Picture of Project](src/assets/screenShot.png)
+![Picture of Project](src/assets/screenShot1.png)
 
 ## Running Locally
 
