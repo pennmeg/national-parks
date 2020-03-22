@@ -16,6 +16,16 @@ Run `npm install` on project folder
 
 `npm start` and open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Notes
+## Getting started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Choose a state
+
+Select a state from the dropdown, and click search
+
+### Choose a park
+
+API will find a list of parks in select stated and display them under `National Parks in {state}`. Choose a park to see more information.
+
+## Notes
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Uses SASS and Styled-Components.
