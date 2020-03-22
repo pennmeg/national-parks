@@ -1,0 +1,81 @@
+.nationalParks {
+  margin: 2em;
+}
+
+.nationalParks--header {
+  h1 {
+    color: #3A5BC6;
+  }
+
+  img {
+    margin: 0 2em;
+  }
+}
+
+.srOnly {
+  font-size: 1px;
+  color: white;
+  color: transparent;
+}
+
+.flexBox {
+  display: flex;
+}
+
+.flexBox--justifyCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.stateForm {
+  flex-direction: column;
+
+  select {
+    margin-bottom: 1em;
+    font-size: 1em;
+    background-color: white;
+    box-shadow: 0 0 0 1px lightgrey, 0 0 0 1px #3A5BC6;
+    transition: box-shadow 200ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 1px #3A5BC6, 0 0 0 1px #3A5BC6;
+      cursor: pointer;
+    }
+  }
+
+  button {
+    padding: 0.5em 0;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+    background-color: #3A5BC6;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 200ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      background-color: rgb(74,70,189);
+      cursor: pointer;
+    }
+  }
+}
+
+.parkList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline;
+  }
+
+  button {
+    border: none;
+    margin: 0 0.5em;
+    color: #3A5BC6;
+  }
+}
