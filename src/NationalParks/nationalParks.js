@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import usStates from './config/states.config.js';
-import './styles/nationalParks.scss';
-import './styles/global.scss';
-import parkSVG from '../assets/example-26.svg';
+
+import usStates from './config/states.config';
+import * as constants from './constants/constants';
+
 import LoadingSpinner from '../LoadingSpinner/loadingSpinner';
 import ParkDetails from './components/ParkDetails/parkDetails';
 import ParkList from './components/ParkList/parkList';
 
-const npsUrl = `https://developer.nps.gov/api/v1/`;
-const parkApi = `parks?`;
-const apiKey = `&api_key=${process.env.REACT_APP_NATIONAL_PARK_API_KEY}`;
-
+import parkSVG from '../assets/example-26.svg';
+import './styles/nationalParks.scss';
+import './styles/global.scss';
 
 function NationalPark() {
   const [state, setState] = useState('AL');
@@ -31,7 +30,7 @@ function NationalPark() {
 
   const searchState = () => {
     const stateCode = `stateCode=${state}`;
-    const url = npsUrl + parkApi + stateCode + apiKey;
+    const url = constants.npsUrl + constants.parkApi + stateCode + constants.apiKey;
     stateError && setStateError(false);
     setSelectedPark([]);
     setSelectedState(state);
@@ -44,7 +43,7 @@ function NationalPark() {
 
   const searchPark = (value) => {
     const parkCode = `parkCode=${value}`;
-    const url = npsUrl + parkApi + parkCode + apiKey;
+    const url = constants.npsUrl + constants.parkApi + parkCode + constants.apiKey;
     parkError && setParkError(false);
     fetch(url)
       .then(response => response.json())
