@@ -1,0 +1,31 @@
+.parkDetails {
+  margin: 1em 1.5em;
+  padding: 0.5em;
+  text-align: center;
+  background-color: #E9EDFA;
+
+  h2 {
+    margin: 0;
+  }
+
+  .gradient--text {
+    color: #4343B2;
+    text-decoration-color: #4343B2;
+
+    &:hover,
+    &:focus {
+      background: -webkit-gradient(linear,left top,right top,from(#4343B2),to(#47ABE0));
+      background: linear-gradient(90deg,#4343B2,#47ABE0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      text-shadow: none;
+      text-decoration-color: #ccc;
+    }
+  }
+
+  img {
+    height: 300px;
+  }
+}

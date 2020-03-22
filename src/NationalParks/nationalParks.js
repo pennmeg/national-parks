@@ -14,7 +14,7 @@ function NationalPark() {
   const [state, setState] = useState('AL');
   const [isLoading, setIsLoading] = useState(false);
   const [stateParks, setStateParks] = useState([]);
-  const [selectedPark, setSelectedPark] = useState({});
+  const [selectedPark, setSelectedPark] = useState([]);
   const [error, setError] = useState(false);
 
   const handleChange = (value) => {
@@ -74,7 +74,7 @@ function NationalPark() {
             </ul>
           }
         </div>
-        {selectedPark && <NationalParkDetails {...selectedPark[0]}/>}
+        {selectedPark && selectedPark.length ? <NationalParkDetails {...selectedPark[0]}/> : ''}
       </div>
     </div>
   );
