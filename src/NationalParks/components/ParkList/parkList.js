@@ -15,6 +15,13 @@ const Button = styled.button`
   border: none;
   margin: 0 0.5em;
   color: #3A5BC6; {/* $indigo */}
+  border-bottom: 1px solid transparent;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    border-bottom: 1px solid #3A5BC6; {/* $indigo */}
+  }
 `;
 
 function ParkList(props) {
