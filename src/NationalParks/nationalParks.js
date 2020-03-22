@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import usStates from './config/states.config.js';
-import './nationalParks.scss';
+import './styles/nationalParks.scss';
+import './styles/global.scss';
 import parkSVG from '../assets/example-26.svg';
 import LoadingSpinner from '../LoadingSpinner/loadingSpinner';
-import NationalParkDetails from './components/nationalParkDetails';
+import ParkDetails from './components/ParkDetails/parkDetails';
+import ParkList from './components/ParkList/parkList';
 
 const npsUrl = `https://developer.nps.gov/api/v1/`;
 const parkApi = `parks?`;
@@ -15,7 +17,8 @@ function NationalPark() {
   const [isLoading, setIsLoading] = useState(false);
   const [stateParks, setStateParks] = useState([]);
   const [selectedPark, setSelectedPark] = useState([]);
-  const [error, setError] = useState(false);
+  const [stateError, setStateError] = useState(false);
+  const [parkError, setParkError] = useState(false);
 
   const handleChange = (value) => {
     if (value === state) {
@@ -28,20 +31,22 @@ function NationalPark() {
   const searchState = () => {
     const stateCode = `stateCode=${state}`;
     const url = npsUrl + parkApi + stateCode + apiKey;
+    stateError && setStateError(false);
     setIsLoading(true);
     fetch(url)
       .then(response => response.json())
       .then(data => { setStateParks(data.data); setIsLoading(false) })
-      .catch(err => { setError(true); setIsLoading(false) })
+      .catch(err => { setStateError(true); setIsLoading(false) })
   }
 
   const searchPark = (value) => {
     const parkCode = `parkCode=${value}`;
     const url = npsUrl + parkApi + parkCode + apiKey;
+    parkError && setParkError(false);
     fetch(url)
       .then(response => response.json())
       .then(data => setSelectedPark(data.data))
-      .catch(err => setError(true))
+      .catch(err => setParkError(true))
   }
 
   return (
@@ -67,14 +72,13 @@ function NationalPark() {
           <h2 id="stateParks">National Parks {stateParks && stateParks.length ? `in ${state}` : ''}</h2>
           {isLoading ?
             <LoadingSpinner /> :
-            <ul className="parkList" aria-labelledby="stateParks">
-              {stateParks && stateParks.map(park => {
-                return <li key={park.parkCode} role="none"><button onClick={() => searchPark(park.parkCode)} type="button">{park.fullName}</button></li>
-              })}
-            </ul>
+            ( stateError ?
+              <p>Error finding parks. Please try again later.</p> :
+              <ParkList parks={stateParks} callback={searchPark} />
+            )
           }
         </div>
-        {selectedPark && selectedPark.length ? <NationalParkDetails {...selectedPark[0]}/> : ''}
+        {selectedPark && selectedPark.length ? <ParkDetails error={parkError} {...selectedPark[0]}/> : ''}
       </div>
     </div>
   );
